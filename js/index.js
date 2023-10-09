@@ -3,7 +3,7 @@ const fromText = document.querySelector('.text-from')
 const toText = document.querySelector('.text-to')
 const exchangeIcon = document.querySelector('.fa-exchange-alt')
 const selectTag = document.querySelectorAll('select')
-const translateBtn = document.querySelector('button')
+const translateBtn = document.querySelector('.translateBtn')
 const icons = document.querySelectorAll('.translate i')
 
 // LOOPING THROUGH THE SELECT_TAG ARRAY
@@ -28,8 +28,10 @@ icons.forEach(icon => {
     if(e.target.classList.contains("fa-copy")) {
       if(e.target.id == 'from') {
         navigator.clipboard.writeText(fromText.value)
+        alert('Copied!')
       } else {
         navigator.clipboard.writeText(toText.value)
+        alert('Copied!')
       }
     } else {
       let utterance
@@ -55,6 +57,7 @@ exchangeIcon.addEventListener('click', () => {
 })
 
 translateBtn.addEventListener('click', () => {
+  console.log("Button Clicked");
   let text = fromText.value
   let translateFrom = selectTag[0].value
   let translateTo = selectTag[1].value
